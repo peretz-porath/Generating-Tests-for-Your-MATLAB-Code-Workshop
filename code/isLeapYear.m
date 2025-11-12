@@ -8,25 +8,22 @@ function isLeap = isLeapYear(year)
 %       isLeapYear(2000)  % returns true
 %       isLeapYear(2024)  % returns true
 %       isLeapYear(2025)  % returns false
-
-arguments
-    year (1,1) {mustBeInteger, mustBePositive}
-end
-
-% Set up logical comparisons for clarity
-isDivBy400 = mod(year,400) == 0;
-isDivBy100 = mod(year,100) == 0;
-isDivBy4   = mod(year,  4) == 0;
-
-% Check for leap year
-if isDivBy400
-    isLeap = true;
-elseif isDivBy4
-    isLeap = true;
-elseif isDivBy100
-    isLeap = false;
-else
-    isLeap = false;
-end
+    
+    arguments
+        year (1,1) {mustBeInteger, mustBePositive}
+    end
+    
+    % Set up logical comparisons for clarity
+    isDivBy400 = mod(year,400) == 0;
+    isDivBy100 = mod(year,100) == 0;
+    isDivBy4   = mod(year,  4) == 0;
+    
+    % Check for leap year
+    % Check for leap year
+    if isDivBy400 || (isDivBy4 && ~isDivBy100)
+        isLeap = true;
+    else
+        isLeap = false;
+    end
 
 end
